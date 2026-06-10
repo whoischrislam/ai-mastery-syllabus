@@ -64,6 +64,7 @@ hardcoded day. So intervals stay honest even if you skip days.
 
 **Course track** (one deck per completed course section, Building with the Claude API):
 - `decks/10-api-fundamentals.md` — stateless API, messages array, system prompts, temperature, streaming, structured output. *(6 cards, 2026-06-10)*
+- `decks/11-agents-workflows-impl.md` — chaining gates, parallel execution, routing classifier, environment inspection, workflow vs. agent in code. *(5 cards, 2026-06-10)*
 
 To add the next deck: say **"primer + deck on \<topic\>"** and I'll teach the lesson, then card it.
 
