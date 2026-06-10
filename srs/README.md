@@ -28,7 +28,7 @@ hardcoded day. So intervals stay honest even if you skip days.
 
 ## Grading (3 grades)
 
-- **Got it** — confident & correct → move **up** one box.
+- **Got it** — confident & correct → move **up** one box. **Teach-back required:** Claude will ask you to explain it in one sentence in your own words before the grade locks. If you stumble, it downgrades to Shaky automatically.
 - **Shaky** — correct but effortful, or partial → **stay** in the same box, reschedule at its interval.
 - **Missed** — wrong or blanked → back to **Box 1**.
 
@@ -75,5 +75,15 @@ To add the next deck: say **"primer + deck on \<topic\>"** and I'll teach the le
 | 2 | Tue Jun 10 | Due reviews + learn deck 08 (primitives) |
 | 3 | Thu Jun 12 | Due reviews (01/07/08 cascading) + learn deck 09 (implementation) |
 | 4 | Sat Jun 14 | Full interleaved review of everything due + mock-interview teach-back |
+
+### Jun 14 teach-back template
+
+After reviews, go cluster by cluster. For each: explain the concept out loud as if to a skeptical interviewer, then anchor it to y30.
+
+1. **Workflow ↔ agent spectrum** — explain the axis and the default judgment rule. Anchor: where does y30's FSM/LLM split sit on this axis, and why?
+2. **5 canonical patterns** — name all five, one-sentence each. Anchor: which patterns are live in y30 today, and which would you add next?
+3. **Self-learning loop** — explain the 5 stages and why obligatory retrieval is the keystone. Anchor: what would break in your Claude Code harness if retrieval weren't structural?
+4. **Harness primitives** — explain the promotion ladder and blast radius. Anchor: name one rule in your harness that earned a hook, and why it crossed the threshold.
+5. **Claude API agents** — explain the agentic loop and the 3 safety principles. Anchor: if y30's session pipeline became an agent, which safety principle would matter most and why?
 
 Run a session any day with **"run my SR"** / **"what's due?"**.
