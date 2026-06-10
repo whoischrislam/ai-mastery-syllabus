@@ -1,0 +1,79 @@
+# Spaced Repetition — repo-native, Claude-run
+
+The learning engine for the **pre-Sapporo input-density sprint**. Source of truth lives
+here in markdown (version-controlled, yours forever). Claude runs the reviews each session.
+
+## How a session works
+
+1. You say **"run my SR"** (or just "what's due?").
+2. Claude reads `schedule.md`, pulls every card due **on or before the session date**, and
+   quizzes you one at a time — **front first**.
+3. You answer (out loud or in chat). Claude reveals the back. You grade yourself.
+4. Claude updates the card's Leitner box + next-due date in `schedule.md`.
+5. When you say so, Claude commits the updated schedule.
+
+Claude uses the **current session date** (from the harness) to compute due dates — not a
+hardcoded day. So intervals stay honest even if you skip days.
+
+## Leitner boxes
+
+| Box | Next due | Meaning |
+|-----|----------|---------|
+| 1 | +1 day  | new / recently missed |
+| 2 | +2 days | |
+| 3 | +4 days | |
+| 4 | +9 days | |
+| 5 | +21 days | |
+| 6 | +60 days | basically retired |
+
+## Grading (3 grades)
+
+- **Got it** — confident & correct → move **up** one box.
+- **Shaky** — correct but effortful, or partial → **stay** in the same box, reschedule at its interval.
+- **Missed** — wrong or blanked → back to **Box 1**.
+
+## Card-design rules (keep the deck healthy)
+
+- **One idea per card** (minimum-information principle). Anything joined by "and" probably splits.
+- **Prefer why/apply over recall.** If you can answer by pattern-matching the words in the prompt, it's a weak card — tell me to rewrite it.
+- **Consistently missed = too big.** Tell me to split it.
+
+## Decks
+
+**Reading track** (one deck per pre-Sapporo reading item, lesson-then-card):
+- `decks/01-agentic-orchestration.md` — workflow↔agent spectrum, 5 canonical patterns, y30 mappings, failure modes. *(seeded 2026-06-08)*
+
+**Build track** (concepts learned by building the global self-learning loop, 2026-06-09):
+- `decks/07-self-learning-loop.md` — compounding requirement, 5 stages, obligatory retrieval, ossification, tombstones. *(9 cards)*
+- `decks/08-harness-primitives.md` — primitives decision, scope, promotion ladder, merge/override, blast radius, advisory/authority. *(8 cards)*
+- `decks/09-implementation-patterns.md` — prompt injection, detached worker, idempotency, event-source gating, model right-sizing, schema-as-contract, provenance. *(10 cards)*
+
+### Roadmap
+
+**Reading track** (planned):
+| # | Deck | Source on the list | Status |
+|---|------|--------------------|--------|
+| 01 | Agentic orchestration | Intro to subagents + multi-agent cookbook | ✅ seeded |
+| 02 | MCP primitives | Introduction to Model Context Protocol | ⬜ next (your build gap) |
+| 03 | Claude API agentic patterns | Building with the Claude API | ✅ seeded (first 1/3 — agents & workflows, 8 cards, 2026-06-10) |
+| 04 | Evals | Hamel Husain — Your AI Product Needs Evals | ⬜ |
+| 05 | Post-training (SFT/RLHF) | Stanford CS229 LLM lecture | ⬜ |
+| 06 | Prompt library patterns | Anthropic prompt library | ⬜ |
+
+**Build track:** 07–09 ✅ seeded 2026-06-09 (27 cards).
+
+To add the next deck: say **"primer + deck on \<topic\>"** and I'll teach the lesson, then card it.
+
+## Pre-Sapporo sprint plan (set 2026-06-09)
+
+4 study days across the 6 before Sapporo (Jun 15). Gaps on Jun 11 & 13 are the
+*spacing* — sleep consolidates, expanding Leitner intervals line up.
+
+| Day | Date | Focus |
+|-----|------|-------|
+| 1 | Mon Jun 9 | Learn deck 07 (loop) + first pass deck 01 (already due) |
+| 2 | Tue Jun 10 | Due reviews + learn deck 08 (primitives) |
+| 3 | Thu Jun 12 | Due reviews (01/07/08 cascading) + learn deck 09 (implementation) |
+| 4 | Sat Jun 14 | Full interleaved review of everything due + mock-interview teach-back |
+
+Run a session any day with **"run my SR"** / **"what's due?"**.
