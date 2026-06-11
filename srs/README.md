@@ -54,7 +54,7 @@ hardcoded day. So intervals stay honest even if you skip days.
 | # | Deck | Source on the list | Status |
 |---|------|--------------------|--------|
 | 01 | Agentic orchestration | Intro to subagents + multi-agent cookbook | ✅ seeded |
-| 02 | MCP primitives | Introduction to Model Context Protocol | ⬜ next (your build gap) |
+| 02 | MCP primitives | Introduction to Model Context Protocol | ✅ seeded (6 cards, 2026-06-10) |
 | 03 | Claude API agentic patterns | Building with the Claude API | ✅ seeded (first 1/3 — agents & workflows, 8 cards, 2026-06-10) |
 | 04 | Evals | Hamel Husain — Your AI Product Needs Evals | ⬜ |
 | 05 | Post-training (SFT/RLHF) | Stanford CS229 LLM lecture | ⬜ |
@@ -65,6 +65,7 @@ hardcoded day. So intervals stay honest even if you skip days.
 **Course track** (one deck per completed course section, Building with the Claude API):
 - `decks/10-api-fundamentals.md` — stateless API, messages array, system prompts, temperature, streaming, structured output. *(6 cards, 2026-06-10)*
 - `decks/11-agents-workflows-impl.md` — chaining gates, parallel execution, routing classifier, environment inspection, workflow vs. agent in code. *(5 cards, 2026-06-10)*
+- `decks/12-rag.md` — what RAG solves, chunking strategies, overlap, embeddings, cosine similarity, hybrid search, reciprocal rank fusion, y30 application. *(8 cards, 2026-06-10)*
 
 To add the next deck: say **"primer + deck on \<topic\>"** and I'll teach the lesson, then card it.
 

@@ -38,3 +38,35 @@ Card ID prefix: `CA`. Scheduling state lives in `../schedule.md`.
 ### CA-08 · context accumulation
 **Front:** Why do long-running agents hit context limits, and what are the three strategies to handle it?
 **Back:** Every loop iteration appends tool calls + results to the message array — context grows unboundedly. Three strategies: **truncate** old turns (lose history), **summarize** intermediate state (compress history), **externalize state** into a structured schema (discard conversation, keep only what matters). Choice depends on whether the agent needs full history or just current state.
+
+### CA-09 · tool description quality
+**Front:** A tool description should cover four things — what are they?
+**Back:** (1) What the tool does, (2) when Claude should use it, (3) what it returns, (4) detailed descriptions for each argument. Missing any one causes misfires — Claude either calls the wrong tool, calls it at the wrong time, or passes wrong arguments.
+
+### CA-10 · required array
+**Front:** In a tool's `input_schema`, what does the `required` array control?
+**Back:** Which parameters Claude *must* provide when calling the tool. Listed in `required` → Claude cannot omit them. Absent from `required` → optional. Empty `required: []` → everything optional. Controls whether Claude can call the tool with missing critical inputs.
+
+### CA-11 · multi-block preservation
+**Front:** When appending an assistant tool-use response to message history, what must you preserve — and what breaks if you don't?
+**Back:** Save `response.content` (all blocks — text + tool_use), not just the text block. If you drop the ToolUse block, the next call arrives with a tool_result in history but no record of Claude having requested it — breaks the conversation. The API is stateless; you own the full history.
+
+### CA-12 · is_error on failure
+**Front:** A tool throws an error during execution. What do you do — and why?
+**Back:** Still send back a `tool_result` with `is_error: true` and the error message as content. Never leave Claude waiting with no response — it's blind to your server. Claude reads the error and can handle it gracefully: retry, explain to the user, or choose a different approach.
+
+### CA-13 · tool routing
+**Front:** How do you scale a system to handle many tools without changing the core loop?
+**Back:** A **tool router** — a dispatcher that maps tool names to functions (`if name == "x": call x()`). The agentic loop never changes; you just add entries to the router. Keeps core logic stable as tool count grows.
+
+### CA-14 · loop condition
+**Front:** What exact field and value tells you to keep the agentic loop running vs. stop?
+**Back:** `stop_reason == "tool_use"` → keep going (execute tools, feed results back, loop). Anything else (usually `"end_turn"`) → Claude is done, return the response. This single check drives the entire loop — Claude owns when it stops.
+
+### CA-15 · built-in tools
+**Front:** What makes built-in tools (text editor, web search) different from custom tools?
+**Back:** Claude already knows the schema — you only provide a small version stub; Claude expands it internally. But you still implement the execution layer. Schema is Claude's responsibility; execution is yours. Same pattern as custom tools, just Claude brings the definition.
+
+### CA-16 · allowed_domains
+**Front:** What does `allowed_domains` do in the web search tool, and why does it matter for health applications?
+**Back:** Restricts searches to specific domains only (e.g., `nih.gov`). Prevents Claude from citing random blogs or unreliable sources. For health applications like y30: lock queries to authoritative medical sources (NIH, Mayo Clinic) to maintain trust and accuracy with vulnerable users.
