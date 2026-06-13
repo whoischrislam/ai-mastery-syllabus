@@ -42,6 +42,7 @@ hardcoded day. So intervals stay honest even if you skip days.
 
 **Reading track** (one deck per pre-Sapporo reading item, lesson-then-card):
 - `decks/01-agentic-orchestration.md` — workflow↔agent spectrum, 5 canonical patterns, y30 mappings, failure modes. *(seeded 2026-06-08)*
+- `decks/04-evals.md` — velocity reframe, 3-level model (unit/human+model/A·B), LLM-as-judge + alignment, error analysis, data flywheel, evals-before-prompts. *(10 cards, 2026-06-13)*
 
 **Build track** (concepts learned by building the global self-learning loop, 2026-06-09):
 - `decks/07-self-learning-loop.md` — compounding requirement, 5 stages, obligatory retrieval, ossification, tombstones. *(9 cards)*
@@ -56,7 +57,7 @@ hardcoded day. So intervals stay honest even if you skip days.
 | 01 | Agentic orchestration | Intro to subagents + multi-agent cookbook | ✅ seeded |
 | 02 | MCP primitives | Introduction to Model Context Protocol | ✅ seeded (6 cards, 2026-06-10) |
 | 03 | Claude API agentic patterns | Building with the Claude API | ✅ seeded (first 1/3 — agents & workflows, 8 cards, 2026-06-10) |
-| 04 | Evals | Hamel Husain — Your AI Product Needs Evals | ⬜ |
+| 04 | Evals | Hamel Husain — Your AI Product Needs Evals | ✅ seeded (10 cards, 2026-06-13) |
 | 05 | Post-training (SFT/RLHF) | Stanford CS229 LLM lecture | ⬜ |
 | 06 | Prompt library patterns | Anthropic prompt library | ⬜ |
 
@@ -90,5 +91,6 @@ After reviews, go cluster by cluster. For each: explain the concept out loud as 
 3. **Self-learning loop** — explain the 5 stages and why obligatory retrieval is the keystone. Anchor: what would break in your Claude Code harness if retrieval weren't structural?
 4. **Harness primitives** — explain the promotion ladder and blast radius. Anchor: name one rule in your harness that earned a hook, and why it crossed the threshold.
 5. **Claude API agents** — explain the agentic loop and the 3 safety principles. Anchor: if y30's session pipeline became an agent, which safety principle would matter most and why?
+6. **Evals** — explain the 3-level model and why LLM-as-judge is worthless without the alignment step. Anchor: name one y30 behavior you'd write a Level-1 assertion for, and why "fix evals before prompts" matters most in a safety-critical product.
 
 Run a session any day with **"run my SR"** / **"what's due?"**.
