@@ -67,6 +67,7 @@ hardcoded day. So intervals stay honest even if you skip days.
 - `decks/10-api-fundamentals.md` — stateless API, messages array, system prompts, temperature, streaming, structured output. *(6 cards, 2026-06-10)*
 - `decks/11-agents-workflows-impl.md` — chaining gates, parallel execution, routing classifier, environment inspection, workflow vs. agent in code. *(5 cards, 2026-06-10)*
 - `decks/12-rag.md` — what RAG solves, chunking strategies, overlap, embeddings, cosine similarity, hybrid search, reciprocal rank fusion, y30 application. *(8 cards, 2026-06-10)*
+- `decks/13-features-of-claude.md` — prompt caching (prefix invariant, placement, silent invalidators, economics), adaptive thinking vs deprecated budget_tokens, effort lever, thinking display≠billing, citations grounding, citations⊥structured-outputs. *(9 cards, 2026-06-14)* — **completes the "Building with the Claude API" course.**
 
 To add the next deck: say **"primer + deck on \<topic\>"** and I'll teach the lesson, then card it.
 
