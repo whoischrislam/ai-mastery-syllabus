@@ -61,7 +61,7 @@ You're already ahead here. .claude/, AGENTS.md, MEMORY.md in y30-voice. Reading 
 
 - ✅ Read the Claude Code docs top to bottom as a spec
 - ✅ Read the CLAUDE.md hierarchy docs — user-level, project-level, directory-level
-- ⬜ **Claude Code 101** — Skilljar course. Even if familiar, catch any gaps. ~30 min. Find it at anthropic.skilljar.com
+- ✅ **Claude Code 101** — Skilljar course. **COMPLETE (2026-07-01).** Even if familiar, catch any gaps. ~30 min. Find it at anthropic.skilljar.com
 - ⬜ **Claude Code in Action** — Skilljar course. Integrate advanced workflow patterns into daily dev. Earn certificate. Find it at anthropic.skilljar.com
 - ⬜ **Introduction to Agent Skills** — Skilljar course. Build/configure/share Skills in Claude Code. Directly applicable to y30. Find it at anthropic.skilljar.com
 - ⬜ Audit y30-voice .claude/, AGENTS.md, MEMORY.md against full spec
@@ -261,7 +261,8 @@ The gap between what you can build and what you can explain is the difference be
 
 | Date | Practice | Target | Stall points | Verdict |
 | --- | --- | --- | --- | --- |
-| — | — | — | — | — |
+| 2026-07-01 | Production rep (written) | Claude Code 101 gap-naming | All gesture, no mechanism/example ("made me think deeper," "more aware"); conflated CLAUDE.md with persistent memory (it's always-loaded instruction; memory accumulates bottom-up) | Recognition-only — redo in claim→mechanism→example |
+| 2026-07-01 | Production rep, guided (written) | CLAUDE.md vs. memory, claim→mechanism→example | Mechanism: fused load-timing with top-down (write path, not read path, is the axis). Example: named capture (into memory) instead of promotion (memory→config); stalled on own system. Claim passed: "authored vs. accumulated" | Passing with scaffolding — key phrase cached: "promotion is the moment accumulated experience acquires an author" |
 
 ### 🗓️ Practice 1: Weekly Verbal Rehearsal (Starts Now, Not Week 14) ⬜ weekly — log above
 
