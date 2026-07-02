@@ -4,7 +4,7 @@ This is the living, cert-free AI mastery syllabus. Updated as you progress. The 
 
 > **Guiding principle:** You don't need permission from a company to level up. The certification path was the vehicle, not the destination. The content is what matters — and all of it is publicly available. Anthropic Academy (anthropic.skilljar.com) is now the primary structured source: 17 free courses, official certificates, all self-paced.
 
-> **Note (maintenance):** Canonical copy lives here in-repo, version-controlled. Status markers updated as work lands. Last sync: 2026-06-14 — "Building with the Claude API" course completed; deck 13 (Features of Claude) seeded in `srs/decks/`.
+> **Note (maintenance):** Canonical copy lives here in-repo, version-controlled — the [Notion page](https://app.notion.com/p/3795a322f09e81c98f4fe396b40fd8bb) is a pointer plus the job-hunt/weekly-planning surface, not a mirror. Status markers updated as work lands. Last sync: 2026-07-01 — Practice System upgraded: production-gap diagnosis added, practices now status-tracked with a rep log, deck 14 (Production Drills, spoken) seeded in `srs/decks/`, Week 8 capstone made attemptable from week 1 (PD-15). Interview Mode Protocol ported from Notion; job-hunt targets stay in Notion.
 
 ---
 
@@ -250,17 +250,32 @@ By Week 14: Not preparing to go toe-to-toe. You are toe-to-toe.
 
 The gap between what you can build and what you can explain is the difference between the job you want and the job you're okay with. This section runs in parallel with all phases — it is not optional.
 
-### 🗓️ Practice 1: Weekly Verbal Rehearsal (Starts Now, Not Week 14)
+> **Diagnosis (2026-07-01):** The interview gap is a **production gap, not a comprehension gap.** Reading trains recognition; interviews test production — generating the articulation cold, out loud, under time pressure. You cannot read your way across that gap. Known pattern: instinct fires now, articulation arrives after the fact. The fix is mechanical: cache the after-the-fact phrasings (deck 14), drill spoken production until retrieval is instant.
+
+> **Operating rules:**
+> 1. **Production before input.** Each study day starts with 5 minutes of *spoken* production on prior material — cold, before any new reading. Written paragraphs don't count; writing routes around stalls that speech exposes.
+> 2. **These practices get tracked like everything else.** Reading feels like progress; rehearsal feels like exposure — so unlogged practice silently loses to reading every time. A week with input ✅ and practice ⬜ is a failed week regardless of pages read.
+> 3. **Drill deck:** `srs/decks/14-production-drills.md` — spoken production cards (the 3 decision axes, the y30 adversarial set, cross-deck reframes, the 4-minute capstone). Answer template: claim → mechanism → example, graded per slot.
+
+### Rep Log
+
+| Date | Practice | Target | Stall points | Verdict |
+| --- | --- | --- | --- | --- |
+| — | — | — | — | — |
+
+### 🗓️ Practice 1: Weekly Verbal Rehearsal (Starts Now, Not Week 14) ⬜ weekly — log above
 
 Every week, pick one decision you made that week — an architecture choice, a prompt design, a tradeoff. Explain it out loud for 5–10 minutes as if you're in a Staff IC interview. Don't try to be perfect. Find where you stall, reach for intuition, or go vague. Those stall points are the next thing to formalize.
 
 Prompt to use: "Walk me through why you made this decision. What did you consider? What would you do differently?" Record on your phone if useful. One session per week, every week.
 
-### 🥊 Practice 2: Weekly Adversarial Interview Sim (Against Your Own Work)
+### 🥊 Practice 2: Weekly Adversarial Interview Sim (Against Your Own Work) ⬜ weekly — log above
 
 Every week, use Claude or a peer to interrogate your y30 architecture decisions specifically. Not generic system design. Not a practice exam. Your actual work, under real questioning pressure.
 
-Example questions to use:
+**Question bank: deck 14, Sections B–C** (`srs/decks/14-production-drills.md`). Protocol: questions fired in random order, answer *spoken* before anything is shown, graded claim/mechanism/example separately. A correct claim with a missing mechanism is the recognition-only tell — log it as a stall point. After each rep, cache your best phrasing into the card's back.
+
+Original example questions (now PD-06 – PD-10 in the deck):
 
 - Why FSM over a pure LLM state manager? What does that buy you at runtime?
 - How do you handle latency spikes in the STT pipeline? What degrades gracefully?
@@ -270,7 +285,7 @@ Example questions to use:
 
 Every vocabulary hole you find here closes faster than weeks of reading. Schedule: every week, starting the first week post-Sapporo — not a milestone gate, a weekly habit.
 
-### 🔥 Practice 3: Production Failure Narration (Rehearse Before First Interview)
+### 🔥 Practice 3: Production Failure Narration (Rehearse Before First Interview) ⬜ once, then maintain
 
 You will get "walk me through a production failure" at every senior loop. You have real material — use it. Pick two y30 failures and build a 3-minute story for each.
 
@@ -297,6 +312,8 @@ Phase 3 (Weeks 11–14) is stretch material. **Week 8 is the real deadline given
 
 If the Week 8 checkpoint is not met, pause Phase 2 deliverables and do another adversarial sim before continuing. **Phase 3 does not start until the Week 8 checkpoint passes.**
 
+**Don't wait for Week 8 to attempt this.** The 4-minute run is PD-15 in deck 14 — attempt it in week 1 and fail informatively. An early failed run tells you exactly which sections stall; that beats weeks of reading toward an untested bar.
+
 ---
 
 ## 🧪 Tinker (Thinking Machines Lab) — Fine-Tuning Lab
@@ -319,3 +336,33 @@ Budget framing: $150 covers 150+ hours of small model fine-tuning or dozens of R
 Timing: After Week 8 checkpoint passes. Do not start before — the eval pipeline needs to exist before you train a model to score it. Resource: thinkingmachines.ai/tinker
 
 **Decision gate:** If Tinker LoRA is not built before your first interview loop, do not reference it as a planned artifact. Pivot the differentiator story to the existing eval pipeline + LLM-judge setup instead. "I have a domain-specific eval pipeline with a judge model" is the claim. "I plan to fine-tune one" is not. Only use the Tinker story if the model card is committed and publicly visible.
+
+---
+
+## 🔴 Interview Mode Protocol
+
+When an active interview loop starts (phone screen scheduled or later), the syllabus shifts into maintenance mode. Do not try to advance phases during a loop.
+
+**Pause immediately:**
+
+- All new deliverable builds (RAG, MCP, Langfuse, Tinker)
+- Any new Skilljar courses
+- CS146S reading blocks
+
+**Keep running:**
+
+- Weekly verbal rehearsal (Practice 1) — this *is* interview prep
+- Adversarial interview sim (Practice 2) — escalate frequency to every 2 days, drill from deck 14
+- Production failure story rehearsal (Practice 3) — must be ready before first technical screen
+
+**Re-entry after loop closes:**
+
+- If offer: Phase 3 is now post-start depth, not pre-start prep. Pause syllabus entirely.
+- If no offer: Do one adversarial debrief with Claude on where you stalled. Fix that gap first before resuming the phase you were on.
+- Resume from exactly where you paused — do not restart or skip forward.
+
+---
+
+## 🎯 Job Hunt — Lives in Notion
+
+Active targets, outreach templates, weekly plans, and pipeline tracking live in the [AI Mastery Notion doc](https://app.notion.com/p/3795a322f09e81c98f4fe396b40fd8bb) — that's the planning surface. This repo owns the syllabus, decks, and practice system; Notion owns the pipeline. Don't duplicate either direction.
